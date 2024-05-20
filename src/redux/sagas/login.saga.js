@@ -47,7 +47,12 @@ function* logoutUser(action) {
     // allow the server session to recognize the user
     // when the server recognizes the user session
     // it will end the session
-    yield axios.post('/api/user/logout', config);
+    yield axios.post('/api/user/logout', config, action.type, function (req, res, next) {
+      req.logout(function (err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+      });
+    });
 
     // now that the session has ended on the server
     // remove the client-side user object to let

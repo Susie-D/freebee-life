@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import '../App/App.css';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const errors = useSelector(store => store.errors);
+  const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
   const login = (event) => {
@@ -48,7 +49,8 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
-            type="password"
+            className="pw"
+            type="current-password"
             name="password"
             required
             value={password}

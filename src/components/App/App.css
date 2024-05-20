@@ -110,3 +110,8 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+input.pw {
+  -webkit-text-security: disc;
+  text-security: disc;
+}
