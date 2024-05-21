@@ -19,10 +19,9 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
-        // TODO - Update Payload t
-        emailAddress: emailAddress,
-        firstName: firstName,
-        lastName: lastName,
+        email_address: emailAddress,
+        firstname: firstName,
+        lastname: lastName,
       },
     });
   }; // end registerUser
@@ -37,11 +36,11 @@ function RegisterForm() {
           </h3>
         )}
         <div>
-          <label htmlFor="firstName">
+          <label htmlFor="firstname">
             First Name:
             <input
               type="text"
-              name="firstName"
+              name="firstname"
               value={firstName}
               required
               onChange={(event) => setFirstName(event.target.value)}
@@ -49,11 +48,11 @@ function RegisterForm() {
           </label>
         </div>
         <div>
-          <label htmlFor="lastName">
+          <label htmlFor="lastname">
             Last Name:
             <input
               type="text"
-              name="lastName"
+              name="lastname"
               value={lastName}
               required
               onChange={(event) => setLastName(event.target.value)}
@@ -61,7 +60,7 @@ function RegisterForm() {
           </label>
         </div>
         <div>
-          <label htmlFor="emailAddress">
+          <label htmlFor="email_address">
             Email:
             <input
               type="text"
