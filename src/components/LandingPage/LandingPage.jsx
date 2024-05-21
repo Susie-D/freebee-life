@@ -3,9 +3,6 @@ import { useHistory } from 'react-router-dom';
 import MultipleItems from '../ImageSlider/ImageSlider';
 import './LandingPage.css';
 
-// CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
-
 function LandingPage() {
   const [heading, setHeading] = useState(
     'Welcome to FreeBee Life! Where Eco-Friendly Choices Define Us.'
