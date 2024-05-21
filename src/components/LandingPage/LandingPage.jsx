@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import MultipleItems from '../ImageSlider/ImageSlider';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState(
+    'Welcome to FreeBee Life! Where Eco-Friendly Choices Define Us.'
+  );
   const history = useHistory();
 
   const onLogin = (event) => {
     history.push('/login');
+  };
+
+  const signUpUser = () => {
+    history.push('/registration');
   };
 
   return (
@@ -18,48 +25,38 @@ function LandingPage() {
       <h2>{heading}</h2>
 
       <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
-          </p>
-
-          <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
-          </p>
-
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
-          </p>
-        </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
-
+        <div className="grid-col grid-col_12">
+          <h3>
+            Experience the magic of the FreeBee Life at our Free Exchange
+            Marketplace.
+          </h3>
           <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
+            {/* <RegisterForm /> */}
+            <div>
+              <h4>New Here?</h4>
+              <button className="btn btn_sizeSm" onClick={signUpUser}>
+                Sign Up
+              </button>
+            </div>
+            <div>
+              <h4>Already a Member?</h4>
+              <button className="btn btn_sizeSm" onClick={onLogin}>
+                Login
+              </button>
+            </div>
           </center>
+          <h4>About FreeBee Life</h4>
+          <p>
+            Experience the magic of the FreeBees Life at our Free Exchange
+            Marketplace. Here, giving is not just an action, it's a way of life.
+            Dive into a world where sharing is the norm, waste is minimized, and
+            connections are made with purpose. Join our community of Freebee
+            enthusiasts and together, let's create a more sustainable and
+            compassionate world. More about FreeBees
+          </p>
+          <div>
+            <MultipleItems />
+          </div>
         </div>
       </div>
     </div>

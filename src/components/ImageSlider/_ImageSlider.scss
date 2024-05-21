@@ -1,0 +1,16 @@
+.slider-container {
+  & div {
+    border: 1px solid white;
+    height: 15vh;
+    background-color: black;
+    & h3 {
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+.slick-next:before,
+.slick-prev:before {
+  color: #004241;
+}
