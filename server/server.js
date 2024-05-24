@@ -9,10 +9,11 @@ const passport = require('./strategies/user.strategy');
 
 // Route Includes
 const userRouter = require('./routes/user.router');
+const itemsRouter = require('./routes/items.router');
 
 // Express Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 // Passport Session Configuration
@@ -24,6 +25,7 @@ app.use(passport.session());
 
 // Routes
 app.use('/api/user', userRouter);
+app.use('/api/items', itemsRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {
