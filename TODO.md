@@ -1,3 +1,7 @@
+Database
+
+Server
+
 Route
 - A router will be created with Express using a pool query to send a query to the database. The response will be the results from the database based off the query that was provided.
 

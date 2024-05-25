@@ -4,12 +4,14 @@ import {
   Redirect,
   Route,
   Switch,
+  Link,
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
+import ItemPage from '../ItemPage/ItemPage';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
@@ -77,6 +79,10 @@ function App() {
             <DiscoverPage />
           </ProtectedRoute>
 
+          <Route path="/item">
+            <ItemPage />
+          </Route>
+
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -112,7 +118,13 @@ function App() {
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
-            <h1>404</h1>
+            <h1>Whoops... Did you get lost buzzing around?</h1>
+            <p>
+              Let's get you back on track! ->
+              <Link className="home-btn" to="/">
+                <button data-testid="toList">Go Home</button>
+              </Link>
+            </p>
           </Route>
         </Switch>
         <Footer />

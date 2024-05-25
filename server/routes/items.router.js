@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
             res.send(result.rows);
         })
         .catch(err => {
-            console.log('ERROR: Get item by id', error);
+            console.log('ERROR: Get item by id', err);
             res.sendStatus(500);
         })
 })

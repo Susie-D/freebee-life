@@ -116,3 +116,28 @@ input.pw {
   -webkit-text-security: disc;
   text-security: disc;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.jc-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jc-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ac-center {
+  display: flex;
+  align-items: center;
+}
