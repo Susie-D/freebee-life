@@ -1,7 +1,47 @@
 .discover {
-  &-page-container {
-    display: flex;
-    margin: 1em;
-    padding: 1em;
+  &-page {
+    &-container {
+      display: flex;
+      margin: 1em;
+      padding: 1em;
+    }
+    &-content {
+      &-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .save-listing-btn {
+        background-color: #faedbe;
+        margin: 1.25em 1em;
+        color: #000000;
+        height: 5vh;
+        width: 30%;
+        border-radius: 1em;
+        border: 2px solid #f5ae02;
+        font-weight: bold;
+        font-size: 18px;
+        &:hover {
+          background: #f5ae02;
+          border: 2px solid #faedbe;
+        }
+      }
+    }
+  }
+}
+
+.new-listing-btn {
+  background-color: #2ca89b;
+  margin: 1.25em 1em;
+  color: #ffff;
+  height: 5vh;
+  width: 30%;
+  border-radius: 1em;
+  border: 2px solid #004241;
+  font-weight: bold;
+  font-size: 18px;
+  &:hover {
+    background: #004241;
+    border: 2px solid #2ca89b;
   }
 }

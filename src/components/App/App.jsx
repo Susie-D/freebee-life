@@ -22,6 +22,7 @@ import DiscoverPage from '../DiscoverPage/DiscoverPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import NewListingPage from '../NewListingPage/NewListingPage';
 
 import './App.css';
 
@@ -72,16 +73,20 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows Discover Page else shows LoginPage
             exact
             path="/discover"
           >
             <DiscoverPage />
           </ProtectedRoute>
 
-          <Route path="/item">
+          <ProtectedRoute path="/item">
             <ItemPage />
-          </Route>
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/new-listing">
+            <NewListingPage />
+          </ProtectedRoute>
 
           <Route exact path="/login">
             {user.id ? (
