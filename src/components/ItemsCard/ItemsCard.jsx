@@ -6,14 +6,13 @@ import { useHistory } from 'react-router-dom';
 export default function ItemsCard() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const itemsListed = useSelector((store) => store.items);
+  const itemsListed = useSelector((store) => store.items.items);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ITEMS' });
   }, []);
 
   const getAnItem = (item) => {
-    console.log('id', item);
     dispatch({
       type: 'FETCH_ITEM',
       payload: item,
@@ -27,7 +26,7 @@ export default function ItemsCard() {
         return (
           <div key={item.id} className="item-card-content">
             <div className="item-card-header">
-              <h4>{item.headliner}</h4>
+              <h4>{item.headline}</h4>
             </div>
             <img
               src={item.upload_image}

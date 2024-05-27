@@ -2,13 +2,13 @@ import { useSelector } from 'react-redux';
 import './_ItemPage.scss';
 
 export default function ItemPage() {
-  const item = useSelector((store) => store.item);
+  const item = useSelector((store) => store.items.item);
 
   return (
     <>
       <div className="item-page-container row">
         <div className="item-page-content-left column">
-          <h1 className="item-page-content-header">{item.headliner}</h1>
+          <h1 className="item-page-content-header">{item.headline}</h1>
           <img src={item.upload_image} />
 
           <div className="item-details">

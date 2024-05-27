@@ -28,9 +28,13 @@ function* fetchItemById(action) {
     }
 }
 
+
+
+
+
 function* itemsSaga() {
     yield takeLatest('FETCH_ITEMS', fetchAllItems);
-    yield takeLatest('FETCH_ITEM', fetchItemById)
+    yield takeLatest('FETCH_ITEM', fetchItemById);
 }
 
 export default itemsSaga;

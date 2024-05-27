@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux';
 
-const items = (state = [], action) => {
+const userItems = (state = [], action) => {
     switch (action.type) {
-        case 'SET_ITEMS':
+        case 'SET_USER_ITEMS':
             return action.payload;
         default:
             return state;
     }
 }
 
-const item = (state = {}, action) => {
+const userItem = (state = {}, action) => {
     switch (action.type) {
-        case 'SET_ITEM': {
+        case 'SET_USER_ITEM': {
             return action.payload;
         }
         default:
@@ -19,6 +19,6 @@ const item = (state = {}, action) => {
     }
 }
 export default combineReducers({
-    items,
-    item
+    userItems,
+    userItem
 });

@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import items from './items.reducer'
-import item from './item.reducer'
+import userItems from './userItems.reducer';
+
 
 
 // rootReducer is the primary reducer for our entire project
@@ -14,8 +15,10 @@ import item from './item.reducer'
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  items, // items listed
-  item // an item listing
+
+  items, // ALL items logic
+  userItems, // USER items logic
+
 });
 
 export default rootReducer;
