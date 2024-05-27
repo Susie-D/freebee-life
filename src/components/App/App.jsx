@@ -23,6 +23,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import NewListingPage from '../NewListingPage/NewListingPage';
+import MyListingsPage from '../MyListingsPage/MyListingsPage';
+import MyItemPage from '../MyItemPage/MyItemPage';
 
 import './App.css';
 
@@ -88,6 +90,14 @@ function App() {
             <NewListingPage />
           </ProtectedRoute>
 
+          <ProtectedRoute path="/my-listings">
+            <MyListingsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/my-item">
+            <MyItemPage />
+          </ProtectedRoute>
+
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -125,7 +135,7 @@ function App() {
           <Route>
             <h1>Whoops... Did you get lost buzzing around?</h1>
             <p>
-              Let's get you back on track! ->
+              Let's get you back on track!
               <Link className="home-btn" to="/">
                 <button data-testid="toList">Go Home</button>
               </Link>

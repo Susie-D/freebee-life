@@ -1,23 +1,23 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import './_ItemsCard.scss';
+import './_MyListingsPage.scss';
 
-export default function ItemsCard() {
+export default function MyListingsPage() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const itemsListed = useSelector((store) => store.items.items);
+  const itemsListed = useSelector((store) => store.userItems.userItems);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_ITEMS' });
+    dispatch({ type: 'FETCH_USER_ITEMS' });
   }, []);
 
-  const getAnItem = (item) => {
+  const getAUserItem = (item) => {
     dispatch({
-      type: 'FETCH_ITEM',
+      type: 'FETCH_USER_ITEM',
       payload: item,
     });
-    history.push(`/item/${item.id}`);
+    history.push(`/my-item/${item.id}`);
   };
 
   return (
@@ -27,7 +27,7 @@ export default function ItemsCard() {
           <div
             key={item.id}
             className="item-card-content"
-            onClick={() => getAnItem(item)}
+            onClick={() => getAUserItem(item)}
           >
             <div className="item-card-header">
               <h4>{item.headline}</h4>

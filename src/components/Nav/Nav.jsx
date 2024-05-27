@@ -32,12 +32,16 @@ function Nav() {
               Discover
             </Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
+            <Link className="navLink" to="/my-listings">
+              My Listings
             </Link>
 
             <Link className="navLink" to="/new-listing">
               New Listing
+            </Link>
+
+            <Link className="navLink" to="/info">
+              Info Page
             </Link>
 
             <LogOutButton className="navLink" />

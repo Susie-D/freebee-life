@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './_NewListingPage.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function NewListingPage() {
   const dispatch = useDispatch();
+  const userId = useSelector((store) => store.user.id);
 
   const [headline, setHeadline] = useState('');
   const [item, setItem] = useState('');
@@ -23,6 +24,7 @@ export default function NewListingPage() {
       condition,
       estimated_value: estimatedValue,
       color,
+      user_id: userId,
     };
 
     dispatch({
