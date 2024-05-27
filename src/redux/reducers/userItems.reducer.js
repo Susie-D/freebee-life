@@ -7,7 +7,7 @@ const userItems = (state = [], action) => {
         default:
             return state;
     }
-}
+};
 
 const userItem = (state = {}, action) => {
     switch (action.type) {
@@ -17,8 +17,19 @@ const userItem = (state = {}, action) => {
         default:
             return state;
     }
+};
+
+const deleteUserItem = (state = {}, action) => {
+    switch (action.type) {
+        case 'DELETE_ITEM':
+            return action.payload;
+        default:
+            return state;
+    }
 }
+
 export default combineReducers({
     userItems,
-    userItem
+    userItem,
+    deleteUserItem,
 });

@@ -14,8 +14,13 @@ export default function NewListingPage() {
   const [estimatedValue, setEstimatedValue] = useState('');
   const [color, setColor] = useState('');
   const [uploadedFile, setUploadedFile] = useState('');
+  // const [dateTime, setDateTime] = useState(null);
 
   const createListing = () => {
+    // const createdDate = new DateTime(now);
+    //  const currentDateTime = new Date();
+    //  setDateTime(currentDateTime.toString());
+
     const newItem = {
       headline,
       item,
@@ -25,6 +30,7 @@ export default function NewListingPage() {
       estimated_value: estimatedValue,
       color,
       user_id: userId,
+      // date_posted: createdDate,
     };
 
     dispatch({

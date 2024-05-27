@@ -30,7 +30,7 @@ app.use('/api/items', itemsRouter);
 app.use('/api/new-item', userItemsRouter);
 app.use('/api/my-items', userItemsRouter);
 app.use('/api/my-item', userItemsRouter);
-
+app.use('/api/my-item/:id', userItemsRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {

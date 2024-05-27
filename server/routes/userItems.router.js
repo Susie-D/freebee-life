@@ -8,20 +8,20 @@ router.get('/', (req, res) => {
         WHERE "user_id" = 4
         ORDER BY "date_posted" DESC
     `;
-    pool.query(allItemsQueryByUserId)
-        .then(result => {
+    pool
+        .query(allItemsQueryByUserId)
+        .then((result) => {
             res.send(result.rows);
         })
-        .catch(err => {
+        .catch((err) => {
             console.log('Error: Get items by user', err);
-            res.sendStatus(500)
-        })
-})
+            res.sendStatus(500);
+        });
+});
 
 router.post('/', (req, res) => {
     const newItem = req.body;
-    const addNewItem =
-        `INSERT INTO "items"("headline", "item", "description", "delivery_method", "condition", "category", "upload_image", "estimated_value", "date_posted", "user_id")  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
+    const addNewItem = `INSERT INTO "items"("headline", "item", "description", "delivery_method", "condition", "category", "upload_image", "estimated_value", "date_posted", "user_id")  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
     `;
     const queryValues = [
         newItem.headline,
@@ -33,15 +33,30 @@ router.post('/', (req, res) => {
         newItem.upload_image,
         newItem.estimated_value,
         newItem.date_posted,
-        newItem.user_id
+        newItem.user_id,
     ];
-    pool.query(addNewItem, queryValues)
+    pool
+        .query(addNewItem, queryValues)
         .then((result) => {
-            res.sendStatus(201)
-
+            res.sendStatus(201);
         })
         .catch((err) => {
             console.log('Error in POST /api/new-item', err);
+            res.sendStatus(500);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    const itemIdToDelete = req.params.id;
+    const deleteItemQuery = `DELETE FROM items
+	WHERE id = $1`
+    pool
+        .query(deleteItemQuery, [itemIdToDelete])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log('Error in DELETE', err)
             res.sendStatus(500);
         })
 })

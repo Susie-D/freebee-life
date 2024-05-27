@@ -2,7 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import './_MyItemPage.scss';
 
 export default function MyItemPage() {
+  const dispatch = useDispatch();
   const item = useSelector((store) => store.userItems.userItem);
+
+  const deleteItem = (itemId) => {
+    dispatch({
+      type: 'DELETE_USER_ITEM',
+      payload: itemId,
+    });
+  };
 
   return (
     <>
@@ -45,7 +53,7 @@ export default function MyItemPage() {
             <div className="btn-container">
               <button
                 className="item-details-btn"
-                onClick={() => console.log('Delete')}
+                onClick={() => deleteItem(item.id)}
               >
                 Delete Listing
               </button>
