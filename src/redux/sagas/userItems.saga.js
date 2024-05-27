@@ -1,8 +1,7 @@
 import axios from "axios";
 import { takeLatest, put } from "redux-saga/effects";
 
-function* fetchUserItemsById(action) {
-    console.log('userItem action', action.payload)
+function* fetchUserItemsById() {
     try {
         const response = yield axios.get('/api/my-items');
         yield put({
@@ -20,17 +19,18 @@ function* addUserItem(action) {
     try {
         yield axios.post('/api/new-item', action.payload);
         yield put({
-            type: 'FETCH_USER_ITEMS'
+            type: 'FETCH_USER_ITEMS',
+            payload: action.payload
         })
     } catch (err) {
-        console.log('Error in ADD item', err)
+        console.log('AXIOS | POST in ADD item', err)
     }
 }
 
 function* fetchUserItemById(action) {
     console.log('addAUserItemSaga', action)
     try {
-        yield axios.post('/api/my-item', action.payload.id)
+        yield axios.get('/api/my-item', action.payload.id)
         yield put({
             type: 'SET_USER_ITEM',
             payload: action.payload

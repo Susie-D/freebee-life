@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './_MyItemPage.scss';
-import { useEffect } from 'react';
 
 export default function MyItemPage() {
-  //   const dispatch = useDispatch();
   const item = useSelector((store) => store.userItems.userItem);
 
   return (
@@ -47,9 +45,15 @@ export default function MyItemPage() {
             <div className="btn-container">
               <button
                 className="item-details-btn"
-                onClick={() => console.log('hey')}
+                onClick={() => console.log('Delete')}
               >
-                Save Listing
+                Delete Listing
+              </button>
+              <button
+                className="item-details-btn"
+                onClick={() => console.log('Edit')}
+              >
+                Edit
               </button>
             </div>
             <div className="row jc-space-between">
