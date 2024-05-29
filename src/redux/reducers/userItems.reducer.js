@@ -26,10 +26,28 @@ const deleteUserItem = (state = {}, action) => {
         default:
             return state;
     }
-}
+};
+
+const editUserItem = (state = {}, action) => {
+    console.log('EDIT PAYLOAD', action.payload)
+    switch (action.type) {
+        case 'SET_EDIT_USER_ITEM':
+            return action.payload;
+        case 'EDIT_USER_ITEM_INPUT':
+            return {
+                ...state,
+                [action.payload.name]: action.payload.value
+            };
+        default:
+            return state
+    }
+};
+
+
 
 export default combineReducers({
     userItems,
     userItem,
     deleteUserItem,
+    editUserItem,
 });

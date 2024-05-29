@@ -25,6 +25,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import NewListingPage from '../NewListingPage/NewListingPage';
 import MyListingsPage from '../MyListingsPage/MyListingsPage';
 import MyItemPage from '../MyItemPage/MyItemPage';
+import EditListingPage from '../EditListingPage/EditListingPage';
 
 import './App.css';
 
@@ -56,7 +57,7 @@ function App() {
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:5173/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
+            If the user is not l`ogged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:5173/user */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
@@ -96,6 +97,10 @@ function App() {
 
           <ProtectedRoute path="/my-item">
             <MyItemPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/edit-item/:id">
+            <EditListingPage />
           </ProtectedRoute>
 
           <Route exact path="/login">

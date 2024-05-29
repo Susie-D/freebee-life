@@ -17,7 +17,7 @@ function* fetchAllItems() {
 function* fetchItemById(action) {
     console.log('action', action.payload)
     try {
-        yield axios.get(`/item/${action.payload.id}`);
+        yield axios.get(`/items/${action.payload.id}`);
 
         yield put({
             type: 'SET_ITEM',

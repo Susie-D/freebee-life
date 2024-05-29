@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './_NewListingPage.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import './_NewListingPage.scss';
 
 export default function NewListingPage() {
   const dispatch = useDispatch();

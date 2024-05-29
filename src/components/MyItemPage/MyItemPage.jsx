@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './_MyItemPage.scss';
 
 export default function MyItemPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const item = useSelector((store) => store.userItems.userItem);
 
   const deleteItem = (itemId) => {
@@ -10,6 +12,14 @@ export default function MyItemPage() {
       type: 'DELETE_USER_ITEM',
       payload: itemId,
     });
+  };
+
+  const editItem = (itemId) => {
+    // dispatch({
+    //   type: 'EDIT_USER_ITEM',
+    //   payload: itemId,
+    // });
+    history.push(`/edit-item/${itemId}`);
   };
 
   return (
@@ -59,7 +69,7 @@ export default function MyItemPage() {
               </button>
               <button
                 className="item-details-btn"
-                onClick={() => console.log('Edit')}
+                onClick={() => editItem(item.id)}
               >
                 Edit
               </button>
