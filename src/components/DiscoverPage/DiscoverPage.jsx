@@ -2,9 +2,11 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import ItemsCard from '../ItemsCard/ItemsCard';
 import Sidebar from '../SideBar/SideBar';
 import './_DiscoverPage.scss';
+import { useSelector } from 'react-redux';
 
 export default function DiscoverPage() {
   const history = useHistory();
+  const user = useSelector((store) => store.user);
 
   const createNewListing = () => {
     history.push('/new-listing');
@@ -18,6 +20,7 @@ export default function DiscoverPage() {
     <div className="discover-page-container">
       <Sidebar />
       <div className="discover-page-content">
+        <h2>Welcome, {user.username}!</h2>
         <div className="discover-page-content-buttons row">
           <button
             className="new-listing-btn"

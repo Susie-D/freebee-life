@@ -1,6 +1,22 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 const pool = require('../modules/pool');
+// const upload = require('../modules/multer')
+
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'Images');
+    },
+    filename: (req, file, cb) => {
+        console.log('file', file)
+        cb(null, Date.now() + '-' + file.originalname);
+    },
+});
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 999999999999999999999 }
+})
 
 router.get('/', (req, res) => {
     const allItemsQueryByDate = `
@@ -33,9 +49,10 @@ router.get('/:id', (req, res) => {
         })
 })
 
-router.post('/', (req, res) => {
+router.post('/', upload.single('upload_image'), (req, res) => {
+    console.log(req.file)
     const newItem = req.body;
-    const addNewItem = `INSERT INTO "items"("headline", "item", "description", "delivery_method", "condition", "category", "upload_image", "estimated_value", "date_posted", "user_id")  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
+    const addNewItem = `INSERT INTO "items"("headline", "item", "description", "delivery_method", "condition", "category", "upload_image", "estimated_value", "user_id")  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
     `;
     const queryValues = [
         newItem.headline,
@@ -44,9 +61,9 @@ router.post('/', (req, res) => {
         newItem.delivery_method,
         newItem.condition,
         newItem.category,
-        newItem.upload_image,
+        // newItem.upload_image, 
+        req.file.path,
         newItem.estimated_value,
-        newItem.date_posted,
         newItem.user_id,
     ];
     pool

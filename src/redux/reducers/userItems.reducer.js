@@ -29,7 +29,6 @@ const deleteUserItem = (state = {}, action) => {
 };
 
 const editUserItem = (state = {}, action) => {
-    console.log('EDIT PAYLOAD', action.payload)
     switch (action.type) {
         case 'SET_EDIT_USER_ITEM':
             return action.payload;
@@ -42,7 +41,6 @@ const editUserItem = (state = {}, action) => {
             return state
     }
 };
-
 
 
 export default combineReducers({

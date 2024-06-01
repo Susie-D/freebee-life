@@ -17,25 +17,39 @@ export default function NewListingPage() {
   // const [dateTime, setDateTime] = useState(null);
 
   const createListing = () => {
-    // const createdDate = new DateTime(now);
+    //const createdDate = new DateTime(now);
     //  const currentDateTime = new Date();
     //  setDateTime(currentDateTime.toString());
 
-    const newItem = {
-      headline,
-      item,
-      category,
-      description,
-      condition,
-      estimated_value: estimatedValue,
-      color,
-      user_id: userId,
-      // date_posted: createdDate,
-    };
+    const formData = new FormData();
+    formData.append('headline', headline);
+    formData.append('item', item);
+    formData.append('category', category);
+    formData.append('description', description);
+    formData.append('condition', condition);
+    formData.append('estimated_value', estimatedValue);
+    formData.append('color', color);
+    formData.append('upload_image', uploadedFile);
+    formData.append('user_id', userId);
+
+    // formData.append('date_posted', createDate)
+
+    // const newItem = {
+    //   headline,
+    //   item,
+    //   category,
+    //   description,
+    //   condition,
+    //   estimated_value: estimatedValue,
+    //   color,
+    //   upload_image: uploadedFile,
+    //   user_id: userId,
+    //   // date_posted: createdDate,
+    // };
 
     dispatch({
       type: 'ADD_USER_ITEM',
-      payload: newItem,
+      payload: formData,
     });
   };
 
@@ -53,7 +67,7 @@ export default function NewListingPage() {
         />
 
         {/* Item and Category */}
-        <div className="row jc-space-between">
+        <div className="row jc-space-between wrap">
           <div className="column">
             <h3>Item</h3>
             <input
@@ -98,8 +112,8 @@ export default function NewListingPage() {
         {/* Description */}
         <h3>Description</h3>
         <textarea
-          id="w3review"
-          name="w3review"
+          id="description"
+          name="description"
           rows="4"
           cols="50"
           value={description}
@@ -111,29 +125,28 @@ export default function NewListingPage() {
         <h3>Upload item picture</h3>
 
         {/* TODO: PHOTO UPLOAD */}
-        <form
-        //   method="POST"
+        {/* <form */}
+        {/* //   method="POST"
         //   action="/profile-upload-multiple"
-        //   enctype="multipart/form-data"
+        //   enctype="multipart/form-data" */}
+        {/* > */}
+        <div
+          className=""
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginRight: '20em',
+          }}
         >
-          <div
-            className=""
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginRight: '20em',
-            }}
-          >
-            <input
-              type="file"
-              value={uploadedFile}
-              onChange={(e) => setUploadedFile(e.target.value)}
-              name="profile-files"
-            />
+          <input
+            type="file"
+            onChange={(e) => setUploadedFile(e.target.files[0])}
+            name="profile-files"
+          />
 
-            {/* <input type="submit" value="Upload" /> */}
-          </div>
-        </form>
+          {/* <input type="submit" value="Upload" /> */}
+        </div>
+        {/* </form> */}
         <div className="jc-end">
           <button className="new-listing-btn" onClick={() => createListing()}>
             Create Listing
