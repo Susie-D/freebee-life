@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import MultipleItems from '../ImageSlider/ImageSlider';
 import './LandingPage.css';
+import { useSelector } from 'react-redux';
 
 function LandingPage() {
   const [heading, setHeading] = useState(
     'Welcome to FreeBee Life! Where Eco-Friendly Choices Define Us.'
   );
+  const user = useSelector((store) => store.user);
+  console.log('user', user);
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -27,21 +30,26 @@ function LandingPage() {
             Experience the magic of the FreeBee Life at our Free Exchange
             Marketplace.
           </h3>
-          <center>
-            {/* <RegisterForm /> */}
-            <div>
-              <h4>New Here?</h4>
-              <button className="btn btn_sizeSm" onClick={signUpUser}>
-                Sign Up
-              </button>
-            </div>
-            <div>
-              <h4>Already a Member?</h4>
-              <button className="btn btn_sizeSm" onClick={onLogin}>
-                Login
-              </button>
-            </div>
-          </center>
+          {user ? (
+            <center>
+              {/* <RegisterForm /> */}
+              <div>
+                <h4>New Here?</h4>
+                <button className="btn btn_sizeSm" onClick={signUpUser}>
+                  Sign Up
+                </button>
+              </div>
+              <div>
+                <h4>Already a Member?</h4>
+                <button className="btn btn_sizeSm" onClick={onLogin}>
+                  Login
+                </button>
+              </div>
+            </center>
+          ) : (
+            ''
+          )}
+
           <h4>About FreeBee Life</h4>
           <p>
             Experience the magic of the FreeBees Life at our Free Exchange

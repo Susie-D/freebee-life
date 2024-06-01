@@ -169,9 +169,9 @@ export default function NewListingPage() {
             style={{ width: '15em', height: '3em' }}
             onChange={(e) => setCondition(e.target.value)}
           >
-            {/* <option value="" disabled>
+            <option value="" disabled>
               Select an option
-            </option> */}
+            </option>
             <option value="Excellent">Excellent</option>
             <option value="Like New">New</option>
             <option value="Good">Good</option>

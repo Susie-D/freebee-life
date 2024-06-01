@@ -1,8 +1,9 @@
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useSelector } from 'react-redux';
 import ItemsCard from '../ItemsCard/ItemsCard';
 import Sidebar from '../SideBar/SideBar';
+import { freeBeeLogo } from '../../assets/assets';
 import './_DiscoverPage.scss';
-import { useSelector } from 'react-redux';
 
 export default function DiscoverPage() {
   const history = useHistory();
@@ -18,30 +19,41 @@ export default function DiscoverPage() {
 
   return (
     <div className="discover-page-container">
-      <Sidebar />
       <div className="discover-page-content">
-        <h2>Welcome, {user.username}!</h2>
+        <div className="welcome-header row"></div>
         <div className="discover-page-content-buttons row">
-          <button
-            className="new-listing-btn"
-            onClick={() => createNewListing()}
-          >
-            Create a New Listing
-          </button>
-          <button
-            className="save-listing-btn"
-            onClick={() => viewSavedListing()}
-          >
-            View Saved Listing
-          </button>
-          <div>
-            <p>Neighborhood / Area</p>
-            Downtown - Within 5 miles
-            <p>Delivery Method: Pickup Dropoff Both</p>
-            <p> Pickup Drop-off Both</p>
+          <Link to="/home">
+            <img className="logo" src={freeBeeLogo} />
+          </Link>
+
+          <h2>Welcome, {user.username}!</h2>
+          <div className="discover-page-logistics">
+            <div>
+              <button
+                className="new-listing-btn"
+                onClick={() => createNewListing()}
+              >
+                Create a New Listing
+              </button>
+              <button
+                className="save-listing-btn"
+                onClick={() => viewSavedListing()}
+              >
+                View Saved Listing
+              </button>
+            </div>
+            <div className="discover-page-logistics">
+              <p>Neighborhood / Area</p>
+              Downtown - Within 5 miles
+              <p>Delivery Method: Pickup Dropoff Both</p>
+              <p> Pickup Drop-off Both</p>
+            </div>
           </div>
         </div>
-        <ItemsCard className="column" />
+        <div className="row">
+          <Sidebar className="column" />
+          <ItemsCard className="column" />
+        </div>
       </div>
     </div>
   );

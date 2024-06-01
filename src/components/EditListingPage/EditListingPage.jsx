@@ -99,51 +99,47 @@ export default function EditListingPage() {
               />
             </div>
 
-            {/* <div
-            className="column"
-            style={{ marginRight: '5em', alignItem: 'center' }}
-          >
-            <h3>Category</h3>
-            <select
-              name="category"
-              id="category"
-              style={{ width: '15em', height: '3em' }}
-              value={category}
-              //   defaultValue={'Select Category'}
-              onChange={(e) => setCategory(e.target.value)}
-            > */}
-            {/* <option value="" disabled>
-                Select an option
-              </option> */}
-            {/* <option value="Apparel">Apparel</option>
-              <option value="Beauty">Beauty</option>
-              <option value="Baby/Family">Baby/Family</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Hobbies">Hobbies</option>
-              <option value="Home Goods">Home Goods</option>
-              <option value="Home Improvement">Home Improvement</option>
-              <option value="Music">Music</option>
-              <option value="Office">Office</option>
-              <option value="Outdoor">Outdoor</option>
-              <option value="Pet Supplies">Pet Supplies</option>
-              <option value="Sporting Goods">Sporting Goods</option>
-            </select>
-          </div> */}
+            <div
+              className="column"
+              style={{ marginRight: '5em', alignItem: 'center' }}
+            >
+              <h3>Category</h3>
+              <select
+                name="category"
+                id="category"
+                style={{ width: '15em', height: '3em' }}
+                // value={category}
+                // defaultValue={'Select Category'}
+                onChange={handleEditItemChange}
+              >
+                <option value="" disabled>
+                  Select an option
+                </option>
+                <option value="Apparel">Apparel</option>
+                <option value="Beauty">Beauty</option>
+                <option value="Baby/Family">Baby/Family</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Hobbies">Hobbies</option>
+                <option value="Home Goods">Home Goods</option>
+                <option value="Home Improvement">Home Improvement</option>
+                <option value="Music">Music</option>
+                <option value="Office">Office</option>
+                <option value="Outdoor">Outdoor</option>
+                <option value="Pet Supplies">Pet Supplies</option>
+                <option value="Sporting Goods">Sporting Goods</option>
+              </select>
+            </div>
           </div>
 
           {/* Description */}
           <h3>Description</h3>
-          {/* <textarea
-          id="w3review"
-          name="w3review"
-          rows="4"
-          cols="50"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        >
-          At w3schools.com you will learn how to make a website. They offer free
-          tutorials in all web development technologies.
-        </textarea> */}
+          <textarea
+            id="editDescription"
+            className="editDescription"
+            rows="4"
+            cols="50"
+            onChange={handleEditItemChange}
+          ></textarea>
           <h3>Upload item picture</h3>
 
           {/* TODO: PHOTO UPLOAD */}

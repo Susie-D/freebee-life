@@ -1,8 +1,7 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
-import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -10,7 +9,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">FreeBee Life</h2>
+        <h2 className="nav-title">• FreeBee Life •</h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}

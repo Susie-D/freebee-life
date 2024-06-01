@@ -2,46 +2,62 @@
   &-page {
     &-container {
       display: flex;
-      margin: 1em;
-      padding: 1em;
+      margin: 0 1em;
+      padding: 0 1em;
     }
     &-content {
+      .welcome-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo {
+        width: 145px;
+        height: 145px;
+      }
+      h2 {
+        margin: 0 1em;
+      }
       &-buttons {
         display: flex;
         justify-content: space-between;
         align-items: center;
-      }
-      .save-listing-btn {
-        background-color: #faedbe;
-        margin: 1.25em 1em;
-        color: #000000;
-        height: 5vh;
-        width: 30%;
-        border-radius: 1em;
-        border: 2px solid #f5ae02;
-        font-weight: bold;
-        font-size: 18px;
-        &:hover {
-          background: #f5ae02;
-          border: 2px solid #faedbe;
+        button {
+          margin: 0 2em 0 0;
+        }
+        .save-listing-btn {
+          background-color: #faedbe;
+          color: #000000;
+          height: 5vh;
+
+          border-radius: 1em;
+          border: 2px solid #f5ae02;
+          font-weight: bold;
+          font-size: 18px;
+          &:hover {
+            background: #f5ae02;
+            border: 2px solid #faedbe;
+          }
+        }
+        .new-listing-btn {
+          background-color: #2ca89b;
+          color: #ffff;
+          height: 5vh;
+
+          border-radius: 1em;
+          border: 2px solid #004241;
+          font-weight: bold;
+          font-size: 18px;
+          &:hover {
+            background: #004241;
+            border: 2px solid #2ca89b;
+          }
         }
       }
-    }
-  }
-}
 
-.new-listing-btn {
-  background-color: #2ca89b;
-  margin: 1.25em 1em;
-  color: #ffff;
-  height: 5vh;
-  width: 30%;
-  border-radius: 1em;
-  border: 2px solid #004241;
-  font-weight: bold;
-  font-size: 18px;
-  &:hover {
-    background: #004241;
-    border: 2px solid #2ca89b;
+      &-logistics {
+        margin-left: 20em;
+      }
+    }
   }
 }
