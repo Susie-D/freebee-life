@@ -1,3 +1,4 @@
+import { suz } from '../../assets/assets';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './UserPage.css';
 import { useSelector } from 'react-redux';
@@ -13,9 +14,16 @@ function UserPage() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        margin: '0',
       }}
     >
       <h2 className="welcome-header">Welcome, {user.username}!</h2>
+      <img
+        src={suz}
+        alt="suz-thumbnail"
+        style={{ borderRadius: '5em', marginBottom: '2.5em' }}
+      />
+
       <div className="user-page-content column">
         <div className="column jc-center ac-start">
           <p className="row">
