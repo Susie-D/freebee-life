@@ -4,9 +4,18 @@
     flex-direction: column;
     width: 300px;
     border-radius: 1em;
+    .column {
+      margin: 0 2em;
+    }
     a {
       padding: 1em 0;
       text-decoration: none;
+      color: #004241;
+      font-size: 17px;
+      &:hover {
+        text-decoration: underline;
+        color: #63757b;
+      }
     }
   }
 }

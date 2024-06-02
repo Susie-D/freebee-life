@@ -160,29 +160,39 @@ export default function NewListingPage() {
           <p>Downtown - Within 5 miles</p>
           <b>Delivery Method</b>
           <p> Pickup Drop-off Both</p>
-          <h3>Category</h3>
-          <select
-            name="condition"
-            id="condition"
-            // defaultValue={'Select Condition'}
-            value={condition}
-            style={{ width: '15em', height: '3em' }}
-            onChange={(e) => setCondition(e.target.value)}
-          >
-            <option value="" disabled>
-              Select an option
-            </option>
-            <option value="Excellent">Excellent</option>
-            <option value="Like New">New</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-          </select>
-          <b>Estimated Value (Optional)</b>
-          <input
-            type="text"
-            value={estimatedValue}
-            onChange={(e) => setEstimatedValue(e.target.value)}
-          />
+
+          <div>
+            <div>
+              <b>Category</b>
+            </div>
+            <select
+              name="condition"
+              id="condition"
+              // defaultValue={'Select Condition'}
+              value={condition}
+              style={{ width: '15em', height: '3em' }}
+              onChange={(e) => setCondition(e.target.value)}
+            >
+              <option value="" disabled>
+                Select an option
+              </option>
+              <option value="Excellent">Excellent</option>
+              <option value="Like New">New</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+            </select>
+          </div>
+
+          <div>
+            <b>Estimated Value (Optional)</b>
+            <div>
+              <input
+                type="text"
+                value={estimatedValue}
+                onChange={(e) => setEstimatedValue(e.target.value)}
+              />
+            </div>
+          </div>
           <br />
           <b>Color (Optional)</b>
           <br />

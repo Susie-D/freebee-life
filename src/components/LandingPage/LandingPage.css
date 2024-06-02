@@ -82,11 +82,79 @@ Grid
 center {
   display: flex;
   justify-content: space-around;
-  background-color: lightgrey;
+  background-color: white;
   padding: 1.25em;
   border-radius: 1.25em;
 }
 
 button {
   height: auto;
+}
+
+h2 {
+  width: 50%;
+  border-radius: 1em;
+  padding: 0.25em 1em;
+}
+
+h3 {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.5em;
+  padding: 0.5em 1em;
+  color: white;
+  letter-spacing: 0.25em;
+  border-radius: 1em;
+  background-color: #004241 !important;
+}
+
+h4 {
+  font-family: 'Courier', Courier, monospace;
+  font-size: 1.35em;
+}
+
+.btn {
+  background-color: #2ca89b;
+  color: #ffff;
+  height: 6vh;
+  border-radius: 1em;
+  border: 1px solid #004241;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btn.sign-up {
+  background-color: #004241;
+  border: 1px solid #2ca89b;
+}
+.btn.sign-up:hover {
+  background-color: #2ca89b;
+  border: 1px solid #004241;
+}
+
+.btn.login {
+  background-color: #f5ae02;
+  border: 1px solid #2ca89b;
+}
+.btn.login:hover {
+  background-color: #faedbe;
+  border: 1px solid #004241;
+}
+
+button:hover {
+  background: #004241;
+  border: 1px solid #2ca89b;
+}
+
+video {
+  position: absolute;
+  opacity: 45%;
+  top: 18vh;
+  left: 0;
+  min-width: 100%;
+  min-height: 140%;
+  z-index: -100;
+}
+
+p {
+  font-size: 1.5em;
 }

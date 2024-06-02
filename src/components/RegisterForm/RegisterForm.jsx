@@ -29,7 +29,7 @@ function RegisterForm() {
   return (
     <div className="formPanel-container">
       <form className="formPanel" onSubmit={registerUser}>
-        <h2>Sign Up</h2>
+        <h2 style={{ width: '100%' }}>Sign Up</h2>
         {errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {errors.registrationMessage}
@@ -95,7 +95,7 @@ function RegisterForm() {
             />
           </label>
         </div>
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <input className="btn" type="submit" name="submit" value="Sign Up" />
         </div>
       </form>

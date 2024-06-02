@@ -2,4 +2,11 @@ footer {
   margin-top: 80px;
   padding: 20px;
   text-align: center;
+  border: 1px dotted #004241;
+  font-weight: bold;
+}
+
+.row.jc-center.ac-center > img {
+  width: 50px;
+  margin: 0 1em;
 }

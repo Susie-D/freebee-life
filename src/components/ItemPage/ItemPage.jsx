@@ -8,15 +8,20 @@ export default function ItemPage() {
     <>
       <div className="item-page-container row">
         <div className="item-page-content-left column">
-          <h1 className="item-page-content-header">{item.headline}</h1>
-          <img src={item.upload_image} />
-
+          <div className="jc-center">
+            <h1 className="item-page-content-header">{item.headline}</h1>
+          </div>
+          <div className="jc-center">
+            <img src={item.upload_image} />
+          </div>
           <div className="item-details">
             <div className="row ac-center">
               <h4>Item</h4>
               <p>{item.item}</p>
-              <h4>Estimated Value</h4>
-              <p>${item.estimate_value}</p>
+              <div>
+                <h4>Estimated Value</h4>
+                <p>${item.estimate_value}</p>
+              </div>
             </div>
 
             <div className="row ac-center">

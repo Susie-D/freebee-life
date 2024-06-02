@@ -3,7 +3,7 @@
     &-container {
       display: flex;
       align-content: center;
-      margin-right: 2em;
+      margin: 2em;
     }
     &-content {
       & input {
@@ -15,13 +15,35 @@
         margin-left: 3em;
         border: 1px solid lightgreen;
         width: 70%;
+        h2 {
+          margin: 0;
+        }
         textarea {
           &#description {
             border-radius: 1em;
           }
         }
+        .new-listing-btn {
+          background-color: #2ca89b;
+          color: #ffff;
+          height: 6vh;
+          border-radius: 1em;
+          border: 1px solid #004241;
+          font-weight: bold;
+          letter-spacing: 0.15em;
+          font-size: 30px;
+          width: 30%;
+          font-family: 'Shadows Into Light', cursive;
+          &:hover {
+            background: #004241;
+            border: 1px solid #2ca89b;
+          }
+        }
       }
       &-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         padding: 1em;
         border-radius: 2em;
         margin-left: 3em;

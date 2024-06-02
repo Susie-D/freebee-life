@@ -11,12 +11,9 @@
         justify-content: center;
         align-items: center;
       }
-      .logo {
-        width: 145px;
-        height: 145px;
-      }
       h2 {
         margin: 0 1em;
+        width: 50%;
       }
       &-buttons {
         display: flex;
@@ -28,35 +25,38 @@
         .save-listing-btn {
           background-color: #faedbe;
           color: #000000;
-          height: 5vh;
-
+          height: 6vh;
           border-radius: 1em;
-          border: 2px solid #f5ae02;
+          border: 1px solid #f5ae02;
+          font-family: 'Shadows Into Light', cursive;
+          letter-spacing: 0.15em;
           font-weight: bold;
           font-size: 18px;
           &:hover {
             background: #f5ae02;
-            border: 2px solid #faedbe;
+            border: 1px solid #faedbe;
           }
         }
         .new-listing-btn {
           background-color: #2ca89b;
           color: #ffff;
-          height: 5vh;
-
+          height: 6vh;
           border-radius: 1em;
-          border: 2px solid #004241;
+          border: 1px solid #004241;
           font-weight: bold;
           font-size: 18px;
+          letter-spacing: 0.15em;
+          font-family: 'Shadows Into Light', cursive;
           &:hover {
             background: #004241;
-            border: 2px solid #2ca89b;
+            border: 1px solid #2ca89b;
           }
         }
       }
-
-      &-logistics {
-        margin-left: 20em;
+    }
+    &-logistics {
+      p {
+        font-size: 17px;
       }
     }
   }

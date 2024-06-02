@@ -34,32 +34,32 @@ function LoginForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+        <div>
+          <label htmlFor="username">Username:</label>
+        </div>
+        <input
+          type="text"
+          name="username"
+          required
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
       </div>
       <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            className="pw"
-            type="current-password"
-            name="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+        <div>
+          <label htmlFor="password">Password:</label>
+        </div>
+        <input
+          className="pw"
+          type="current-password"
+          name="password"
+          required
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
       </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <input className="btn" type="submit" name="submit" value="Login" />
       </div>
     </form>
   );

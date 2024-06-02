@@ -1,7 +1,7 @@
 .slider-container {
+  width: 60%;
   & div {
-    border: 1px solid white;
-    height: 15vh;
+    justify-content: flex-start;
     background-color: black;
     & h3 {
       color: white;
@@ -10,7 +10,45 @@
   }
 }
 
+.slick-slide {
+  width: 175px;
+  color: white;
+  img {
+    width: auto;
+    max-width: 75%;
+  }
+}
+
 .slick-next:before,
 .slick-prev:before {
   color: #004241;
+  font-size: 80px;
+}
+
+.slick-prev {
+  left: -90px;
+}
+
+.slider-content {
+  display: flex !important;
+  padding: 0 1em;
+  border-left: 4px dotted #f5ae02;
+}
+
+.slick-track {
+  height: 24vh !important;
+  width: 125%;
+}
+
+.item-info {
+  display: flex;
+  justify-content: center;
+  padding: 0 1em;
+  margin: 1em;
+}
+
+.slider-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
