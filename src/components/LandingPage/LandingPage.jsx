@@ -21,12 +21,19 @@ function LandingPage() {
   };
 
   return (
-    <div className="container column">
+    <div className="container">
       <div className="jc-center">
-        <h2 style={{ background: 'white' }}>{heading}</h2>
+        <h2 className="landing-header">{heading}</h2>
       </div>
       <div className="row jc-center">
-        <h4 style={{ width: '50%' }}>
+        <h4
+          style={{
+            width: '50%',
+            background: 'white',
+            padding: '.5em 1em',
+            borderRadius: '1em',
+          }}
+        >
           Any donations or proceeds generated through our platform go directly
           to bee conservation projects. By supporting us, you are also
           contributing to the preservation of bee populations, which are
@@ -36,9 +43,25 @@ function LandingPage() {
       <video autoPlay loop>
         <source src={beeVideo} type="video/mp4" />
       </video>
-      <div>
-        <ImageSlider />
+      <div className="row jc-center">
+        <h2
+          style={{
+            fontFamily: "'Shadows Into Light', cursive",
+            fontSize: '2em',
+            borderRadius: '1em',
+            backgroundColor: '#FAEDBE',
+            color: '#004241',
+            padding: '.5em',
+            width: 'fit-content',
+            margin: '0',
+            border: '2px dotted #004241',
+          }}
+        >
+          Recently Listed Items
+        </h2>
       </div>
+      <ImageSlider />
+
       <div className="grid">
         <div className="grid-col grid-col_12">
           <div className="jc-center">

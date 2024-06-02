@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import './_ItemPage.scss';
+import { bee, freeBeeLogo } from '../../assets/assets';
 
 export default function ItemPage() {
   const item = useSelector((store) => store.items.item);
@@ -15,13 +16,12 @@ export default function ItemPage() {
             <img src={item.upload_image} />
           </div>
           <div className="item-details">
-            <div className="row ac-center">
+            <div className="row ac-center jc-space-between">
               <h4>Item</h4>
               <p>{item.item}</p>
-              <div>
-                <h4>Estimated Value</h4>
-                <p>${item.estimate_value}</p>
-              </div>
+
+              <h4>Estimated Value</h4>
+              <p>${item.estimate_value}</p>
             </div>
 
             <div className="row ac-center">
@@ -30,7 +30,7 @@ export default function ItemPage() {
             </div>
 
             <div>
-              <h4>Details</h4>
+              <h4 style={{ margin: 0 }}>Details</h4>
               <span>{item.description}</span>
             </div>
 
@@ -47,20 +47,39 @@ export default function ItemPage() {
 
         <div className="item-page-content-right column">
           <div className="item-details">
-            <div className="btn-container">
+            <div className="save-btn-container">
               <button
-                className="item-details-btn"
+                className="save-listing-btn"
                 onClick={() => console.log('hey')}
               >
                 Save Listing
               </button>
             </div>
-            <div className="row jc-space-between">
+            <div className="row jc-center">
               <div className="column">
                 <h4>Lister</h4>
                 <p>{item.user_id}</p>
               </div>
             </div>
+            <p style={{ textAlign: 'center' }}>
+              Free the Bees: Your Donation Makes a Difference!
+            </p>
+            <div className="row jc-center">
+              <button
+                className="donate-btn jc-center ac-center"
+                onClick={() => console.log('hey')}
+              >
+                Donate
+                <img src={bee} alt="" />
+              </button>
+            </div>
+            <p>
+              Bee populations are critical for ensuring a healthy environment.
+              Please give today to build a healthier, more resilient future for
+              all. Make a tax-deductible contribution and help us curb the rapid
+              decline of bee populations and bolster local communities and
+              ecosystems. We are grateful for your support!
+            </p>
           </div>
         </div>
       </div>

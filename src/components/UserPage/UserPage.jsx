@@ -6,12 +6,44 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   return (
-    <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-
-      <p> User Profile Page To Do</p>
-
+    <div
+      className="container"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <h2 className="welcome-header">Welcome, {user.username}!</h2>
+      <div className="user-page-content column">
+        <div className="column jc-center ac-start">
+          <p className="row">
+            <b>Username: &nbsp;</b>
+            {user.username}
+          </p>
+          <p className="row">
+            <b>First name: &nbsp;</b>
+            {user.firstname}
+          </p>
+          <p className="row">
+            <b>Last Name: &nbsp;</b>
+            {user.lastname}
+          </p>
+          <p className="row">
+            <b>Email Address:</b> &nbsp; {user.email_address}
+          </p>
+          <p className="row">
+            <b>Phone:</b> &nbsp; {user.phone}
+          </p>
+          <p className="row">
+            <b>Location:</b> &nbsp; {user.location}
+          </p>
+        </div>
+      </div>
+      <p className="row">
+        <p>Your ID is: {user.id}</p>
+      </p>
       <LogOutButton className="btn" />
     </div>
   );

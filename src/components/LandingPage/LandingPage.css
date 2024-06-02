@@ -91,10 +91,12 @@ button {
   height: auto;
 }
 
-h2 {
+.landing-header {
+  background-color: white;
   width: 50%;
   border-radius: 1em;
   padding: 0.25em 1em;
+  font-size: 40px;
 }
 
 h3 {
@@ -151,7 +153,7 @@ video {
   top: 18vh;
   left: 0;
   min-width: 100%;
-  min-height: 140%;
+  min-height: 149.5%;
   z-index: -100;
 }
 

@@ -3,6 +3,7 @@
     &-container {
       display: flex;
       align-content: center;
+      justify-content: center;
       margin: 2em;
     }
     &-content {
@@ -14,9 +15,11 @@
         border-radius: 2em;
         margin-left: 3em;
         border: 1px solid lightgreen;
-        width: 70%;
         h2 {
+          width: 100%;
           margin: 0;
+          padding: 0.25em 0;
+          font-size: 35px;
         }
         textarea {
           &#description {
@@ -48,7 +51,6 @@
         border-radius: 2em;
         margin-left: 3em;
         border: 1px solid lightblue;
-        width: 30%;
       }
     }
   }

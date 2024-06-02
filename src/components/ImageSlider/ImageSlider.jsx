@@ -25,17 +25,22 @@ export default function ImageSlider() {
   };
 
   return (
-    <div className="row jc-center" style={{ marginTop: '3.25em' }}>
+    <div className="row jc-center" style={{ margin: '3.25em 0' }}>
       <div className="slider-container">
         <Slider {...settings}>
           {itemsListed.map((item) => (
-            <div className="slider-content" key={item.key}>
+            <div
+              className="slider-content"
+              onClick={() => history.push(`/item/${item.id}`)}
+              key={item.id}
+            >
               <div
                 className="column"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  width: 'fit-content',
                 }}
               >
                 <div
@@ -48,20 +53,24 @@ export default function ImageSlider() {
                 >
                   {item.headline}
                 </div>
-                <img
-                  src={item.upload_image}
-                  onClick={() => history.push(`/item/${item.id}`)}
-                />
+                <img src={item.upload_image} />
               </div>
 
               <div className="item-info column">
                 <b>Item:</b>
 
                 <div>{item.item}</div>
-                <p style={{ fontSize: '0.5em' }}></p>
-                <div style={{ fontWeight: 'bold', color: '#2CA89B' }}>
+                <p style={{ fontSize: '0.25em' }}></p>
+                <p
+                  style={{
+                    fontWeight: 'bold',
+                    color: '#2CA89B',
+                    fontSize: '1em',
+                    marginRight: '1em',
+                  }}
+                >
                   {item.description}
-                </div>
+                </p>
               </div>
             </div>
           ))}

@@ -26,8 +26,12 @@ export default function MyItemPage() {
     <>
       <div className="item-page-container row">
         <div className="item-page-content-left column">
-          <h1 className="item-page-content-header">{item.headline}</h1>
-          <img src={item.upload_image} />
+          <div className="jc-center">
+            <h1 className="item-page-content-header">{item.headline}</h1>
+          </div>
+          <div className="jc-center">
+            <img src={item.upload_image} />
+          </div>
 
           <div className="item-details">
             <div className="row ac-center">
@@ -58,20 +62,20 @@ export default function MyItemPage() {
           </div>
         </div>
 
-        <div className="item-page-content-right column">
+        <div className="item-page-content-right width column">
           <div className="item-details">
             <div className="btn-container">
               <button
-                className="item-details-btn"
+                className="item-edit-btn"
+                onClick={() => editItem(item.id)}
+              >
+                Edit Listing
+              </button>
+              <button
+                className="item-delete-btn"
                 onClick={() => deleteItem(item.id)}
               >
                 Delete Listing
-              </button>
-              <button
-                className="item-details-btn"
-                onClick={() => editItem(item.id)}
-              >
-                Edit
               </button>
             </div>
             <div className="row jc-space-between">

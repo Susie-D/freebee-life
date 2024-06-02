@@ -14,13 +14,16 @@
       h2 {
         margin: 0 1em;
         width: 50%;
+        font-size: 50px;
+        padding: 0;
+        margin: 0;
       }
       &-buttons {
         display: flex;
         justify-content: space-between;
         align-items: center;
         button {
-          margin: 0 2em 0 0;
+          margin: 0 3em 0 0;
         }
         .save-listing-btn {
           background-color: #faedbe;
@@ -29,9 +32,11 @@
           border-radius: 1em;
           border: 1px solid #f5ae02;
           font-family: 'Shadows Into Light', cursive;
-          letter-spacing: 0.15em;
+          letter-spacing: 0.1em;
           font-weight: bold;
           font-size: 18px;
+          padding: 0.75em;
+          width: fit-content;
           &:hover {
             background: #f5ae02;
             border: 1px solid #faedbe;
@@ -45,8 +50,10 @@
           border: 1px solid #004241;
           font-weight: bold;
           font-size: 18px;
-          letter-spacing: 0.15em;
+          letter-spacing: 0.1em;
+          padding: 0.75em;
           font-family: 'Shadows Into Light', cursive;
+          width: fit-content;
           &:hover {
             background: #004241;
             border: 1px solid #2ca89b;

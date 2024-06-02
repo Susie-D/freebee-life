@@ -42,7 +42,7 @@ h2.nav-title {
   padding: 24px 10px;
   text-decoration: none;
   border-radius: 1em;
-  margin: 1em;
+  margin: 1em 0.25em;
   width: fit-content;
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -67,6 +67,14 @@ a.navLink {
   margin: 0 3em;
 }
 
-.gear-icon {
-  width: 25px;
+.row > img {
+  width: 50px;
+  margin: 1em;
+  border-radius: 2em;
+}
+
+img.gear-icon {
+  width: 30px !important;
+  height: 30px;
+  border-radius: 0px;
 }

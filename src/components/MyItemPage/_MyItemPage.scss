@@ -1,0 +1,42 @@
+.btn-container {
+  justify-content: space-between;
+}
+
+.item-page-content-right.width.column {
+  width: -webkit-fill-available;
+}
+
+.item-delete-btn {
+  margin: 1em;
+  background-color: #63757b;
+  color: #ffffff;
+  height: 6vh;
+  width: 40%;
+  border-radius: 1em;
+  border: 1px solid #004241;
+  font-family: 'Shadows Into Light', cursive;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+  font-size: 18px;
+  &:hover {
+    background: #f5ae02;
+    border: 1px solid #faedbe;
+  }
+}
+.item-edit-btn {
+  margin: 1em;
+  background-color: #2ca89b;
+  color: #ffff;
+  height: 6vh;
+  width: 40%;
+  border-radius: 1em;
+  border: 1px solid #004241;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  font-family: 'Shadows Into Light', cursive;
+  &:hover {
+    background: #004241;
+    border: 1px solid #2ca89b;
+  }
+}

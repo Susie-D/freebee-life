@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import LogOutButton from '../LogOutButton/LogOutButton';
-import { freeBeeLogo, gear } from '../../assets/assets';
+import { freeBeeLogo, gear, suz } from '../../assets/assets';
 import './Nav.css';
+import { useHistory } from 'react-router-dom';
 
 function Nav() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const user = useSelector((store) => store.user);
   return (
     <div className="nav">
@@ -55,12 +58,20 @@ function Nav() {
               Info Page
             </Link> */}
             {/* <LogOutButton className="navLink" /> */}
-            <img
-              src={gear}
-              className="gear-icon"
-              alt="gear icon"
-              onClick={() => dispatch({ type: 'LOGOUT' })}
-            />
+            <div className="row ac-center jc-center">
+              <img
+                src={suz}
+                alt="suz-thumbnail"
+                className="suz-thumbnail"
+                onClick={() => history.push('/user')}
+              />
+              <img
+                src={gear}
+                className="gear-icon"
+                alt="gear icon"
+                onClick={() => dispatch({ type: 'LOGOUT' })}
+              />
+            </div>
           </>
         )}
       </div>

@@ -18,11 +18,11 @@ export default function DiscoverPage() {
 
   return (
     <div className="discover-page-container">
-      <div className="discover-page-content">
+      <div className="discover-page-content" >
         <div className="welcome-header row"></div>
         <div className="discover-page-content-buttons row">
           <h2>Welcome, {user.username}!</h2>
-          <div className="row">
+          <div className="row" style={{ width: '50%' }}>
             <button
               className="new-listing-btn"
               onClick={() => createNewListing()}
