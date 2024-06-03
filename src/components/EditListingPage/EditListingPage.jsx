@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 export default function EditListingPage() {
   const params = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const itemToEdit = useSelector((store) => store.userItems.editUserItem);
   const [preview, setPreview] = useState(null);
   const itemIdToEdit = params.id;
@@ -38,7 +39,7 @@ export default function EditListingPage() {
       // SEND THE UPDATED EDIT INFO W/ ONSUBMIT
       payload: formData,
     });
-    // history.push('/my-listings');
+    history.push('/my-listings');
   };
 
   const handleEditItemChange = (e) => {
@@ -200,13 +201,20 @@ export default function EditListingPage() {
               <option value="Good">Good</option>
               <option value="Fair">Fair</option>
             </select>
-            <b>Estimated Value (Optional)</b>
-            <input
-              type="text"
-              name="estimated_value"
-              value={itemToEdit.estimated_value}
-              onChange={handleEditItemChange}
-            />
+            <br />
+            <br />
+            <div>
+              <b>Estimated Value (Optional)</b>
+            </div>
+            <div>
+              $
+              <input
+                type="text"
+                name="estimated_value"
+                value={itemToEdit.estimated_value}
+                onChange={handleEditItemChange}
+              />
+            </div>
             <br />
             <b>Color (Optional)</b>
             <br />

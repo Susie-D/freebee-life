@@ -211,3 +211,7 @@ label {
   flex-direction: column;
   text-align: left;
 }
+
+textarea {
+  padding: 1em;
+}

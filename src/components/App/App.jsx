@@ -103,6 +103,13 @@ function App() {
             <EditListingPage />
           </ProtectedRoute>
 
+          <ProtectedRoute path="/saved-listings">
+            <div className="container column ac-center jc-center">
+              <h1>Feature Coming Soon!</h1>
+              <h2>Summer 2024!</h2>
+            </div>
+          </ProtectedRoute>
+
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,

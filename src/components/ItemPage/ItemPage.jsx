@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
 import './_ItemPage.scss';
-import { bee, freeBeeLogo } from '../../assets/assets';
+import { bee } from '../../assets/assets';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function ItemPage() {
+  const history = useHistory();
   const item = useSelector((store) => store.items.item);
 
   return (
@@ -31,7 +33,9 @@ export default function ItemPage() {
 
             <div>
               <h4 style={{ margin: 0 }}>Details</h4>
-              <span>{item.description}</span>
+              <span>
+                <p style={{ margin: '.5em 0' }}>{item.description}</p>
+              </span>
             </div>
 
             <div className="row jc-space-between ac-center">
@@ -50,7 +54,7 @@ export default function ItemPage() {
             <div className="save-btn-container">
               <button
                 className="save-listing-btn"
-                onClick={() => console.log('hey')}
+                onClick={() => history.push('/saved-listings')}
               >
                 Save Listing
               </button>

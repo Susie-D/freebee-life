@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './_NewListingPage.scss';
+import { useHistory } from 'react-router-dom';
 
 export default function NewListingPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const userId = useSelector((store) => store.user.id);
 
   const [headline, setHeadline] = useState('');
@@ -51,6 +53,7 @@ export default function NewListingPage() {
       type: 'ADD_USER_ITEM',
       payload: formData,
     });
+    history.push('/discover');
   };
 
   return (
@@ -123,13 +126,6 @@ export default function NewListingPage() {
           tutorials in all web development technologies.
         </textarea>
         <h3>Upload item picture</h3>
-
-        {/* TODO: PHOTO UPLOAD */}
-        {/* <form */}
-        {/* //   method="POST"
-        //   action="/profile-upload-multiple"
-        //   enctype="multipart/form-data" */}
-        {/* > */}
         <div
           className=""
           style={{
@@ -143,10 +139,7 @@ export default function NewListingPage() {
             onChange={(e) => setUploadedFile(e.target.files[0])}
             name="profile-files"
           />
-
-          {/* <input type="submit" value="Upload" /> */}
         </div>
-        {/* </form> */}
         <div className="jc-end">
           <button className="new-listing-btn" onClick={() => createListing()}>
             Create Listing
@@ -186,8 +179,9 @@ export default function NewListingPage() {
           <div>
             <b>Estimated Value (Optional)</b>
             <div>
+              $
               <input
-                type="text"
+                type="number"
                 value={estimatedValue}
                 onChange={(e) => setEstimatedValue(e.target.value)}
               />

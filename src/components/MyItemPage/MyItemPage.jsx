@@ -8,10 +8,13 @@ export default function MyItemPage() {
   const item = useSelector((store) => store.userItems.userItem);
 
   const deleteItem = (itemId) => {
-    dispatch({
-      type: 'DELETE_USER_ITEM',
-      payload: itemId,
-    });
+    if (confirm('Are you sure you want to delete this item?')) {
+      dispatch({
+        type: 'DELETE_USER_ITEM',
+        payload: itemId,
+      });
+      history.push(`/my-listings`);
+    }
   };
 
   const editItem = (itemId) => {
@@ -44,7 +47,9 @@ export default function MyItemPage() {
 
             <div>
               <h4>Details</h4>
-              <span>{item.description}</span>
+              <span>
+                <p style={{ margin: '.5em 0' }}>{item.description}</p>
+              </span>
             </div>
 
             <div className="row jc-space-between ac-center">
