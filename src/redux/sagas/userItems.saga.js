@@ -71,7 +71,7 @@ function* fetchItemToEdit(action) {
 function* updateUserItem(action) {
     console.log('editUserItem', action.payload)
     try {
-        yield axios.put(`/api/items/${action.payload.id}`, action.payload);
+        yield axios.put(`/api/items/${action.payload.get('id')}`, action.payload);
         yield put({
             type: 'FETCH_USER_ITEMS'
         })

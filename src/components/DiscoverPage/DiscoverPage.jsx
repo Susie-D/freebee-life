@@ -18,7 +18,7 @@ export default function DiscoverPage() {
 
   return (
     <div className="discover-page-container">
-      <div className="discover-page-content" >
+      <div className="discover-page-content">
         <div className="welcome-header row"></div>
         <div className="discover-page-content-buttons row">
           <h2>Welcome, {user.username}!</h2>
@@ -39,9 +39,7 @@ export default function DiscoverPage() {
           <div className="discover-page-logistics">
             <p className="area-label">Neighborhood / Area</p>
             Downtown - Within 5 miles
-            <p className="delivery-label">
-              Delivery Method: Pickup Dropoff Both
-            </p>
+            <p className="delivery-label">Delivery Method:</p>
             <p> Pickup Drop-off Both</p>
           </div>
         </div>

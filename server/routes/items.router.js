@@ -93,7 +93,8 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', upload.single('upload_image'), (req, res) => {
+    console.log('EDDDIT', req.body)
     const editItem = req.body;
     console.log('EDIT', editItem);
     const itemIdToEdit = req.params.id;
@@ -101,13 +102,29 @@ router.put('/:id', (req, res) => {
     UPDATE "items"
         SET
             "headline" = $1,
-            "item" = $2
-        WHERE "id" = $3;
+            "item" = $2,
+            "category" = $3,
+            "description" = $4,
+            "delivery_method" = $5,
+            "condition" = $6,
+            "estimated_value" = $7,
+            "color" = $8,
+            "upload_image" = $9,
+            "user_id" = $10
+        WHERE "id" = $11;
     `;
 
     const queryValues = [
         editItem.headline,
         editItem.item,
+        editItem.category,
+        editItem.description,
+        editItem.delivery_method,
+        editItem.condition,
+        editItem.estimated_value,
+        editItem.color,
+        req?.file?.path || editItem.upload_image,
+        editItem.user_id,
         itemIdToEdit,
     ];
     pool

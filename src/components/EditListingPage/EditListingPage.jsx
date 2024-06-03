@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './_EditListingPage.scss';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function EditListingPage() {
   const params = useParams();
   const dispatch = useDispatch();
-
-  const userId = useSelector((store) => store.user.id);
   const itemToEdit = useSelector((store) => store.userItems.editUserItem);
-
+  const [preview, setPreview] = useState(null);
   const itemIdToEdit = params.id;
 
   useEffect(() => {
@@ -19,46 +18,27 @@ export default function EditListingPage() {
     });
   }, []);
 
-  // const [headline, setHeadline] = useState('');
-
-  // const [item, setItem] = useState('');
-  // const [category, setCategory] = useState('');
-  // const [description, setDescription] = useState('');
-  // const [condition, setCondition] = useState('');
-  // const [estimatedValue, setEstimatedValue] = useState('');
-  // const [color, setColor] = useState('');
-  // const [uploadedFile, setUploadedFile] = useState('');
-  // const [dateTime, setDateTime] = useState(null);
-
   const updateListing = (e) => {
     e.preventDefault();
     // Call the Saga function that will actually update the
     // student in our database table:
+    const formData = new FormData();
+    formData.append('id', itemIdToEdit);
+    formData.append('headline', itemToEdit.headline);
+    formData.append('item', itemToEdit.item);
+    formData.append('category', itemToEdit.category);
+    formData.append('description', itemToEdit.description);
+    formData.append('condition', itemToEdit.condition);
+    formData.append('estimated_value', itemToEdit.estimated_value);
+    formData.append('color', itemToEdit.color);
+    formData.append('upload_image', itemToEdit.upload_image);
+    formData.append('user_id', itemToEdit.user_id);
     dispatch({
       type: 'UPDATE_ITEM',
       // SEND THE UPDATED EDIT INFO W/ ONSUBMIT
-      payload: itemToEdit,
+      payload: formData,
     });
-
-    // Route the user back to the home view so they can see
-    // all the student data:
-    // history.push('/');
-
-    // const createdDate = new DateTime(now);
-    //  const currentDateTime = new Date();
-    //  setDateTime(currentDateTime.toString());
-
-    const newItem = {
-      // headline,
-      // item,
-      // category,
-      // description,
-      // condition,
-      // estimated_value: estimatedValue,
-      // color,
-      // user_id: userId,
-      // date_posted: createdDate,
-    };
+    // history.push('/my-listings');
   };
 
   const handleEditItemChange = (e) => {
@@ -68,14 +48,28 @@ export default function EditListingPage() {
     });
   };
 
+  const handleEditItemPhotoChange = (e) => {
+    const reader = new FileReader();
+    const file = e.target.files[0];
+
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+    dispatch({
+      type: 'EDIT_USER_ITEM_INPUT',
+      payload: {
+        name: 'upload_image',
+        value: file,
+      },
+    });
+  };
+
   return (
     <form onSubmit={updateListing}>
-      {JSON.stringify(itemToEdit)}
-
       <div className="new-listing-page-container row">
         <div className="new-listing-page-content-left column">
           <h2>Edit Listing</h2>
-
           {/* Headline */}
           <h3>Headline</h3>
           <input
@@ -85,10 +79,9 @@ export default function EditListingPage() {
             id="headline"
             onChange={handleEditItemChange}
           />
-
           {/* Item and Category */}
           <div className="row jc-space-between">
-            <div className="column">
+            <div className="column" style={{ margin: '1em 1em 1em 0' }}>
               <h3>Item</h3>
               <input
                 type="text"
@@ -100,20 +93,23 @@ export default function EditListingPage() {
             </div>
 
             <div
-              className="column"
-              style={{ marginRight: '5em', alignItem: 'center' }}
+              className="column "
+              style={{
+                margin: '1em 10em 0 0',
+                alignItem: 'center',
+              }}
             >
               <h3>Category</h3>
               <select
                 name="category"
                 id="category"
                 style={{ width: '15em', height: '3em' }}
-                // value={category}
-                // defaultValue={'Select Category'}
+                value={itemToEdit.category}
+                defaultValue={'Select Category'}
                 onChange={handleEditItemChange}
               >
                 <option value="" disabled>
-                  Select an option
+                  Select category
                 </option>
                 <option value="Apparel">Apparel</option>
                 <option value="Beauty">Beauty</option>
@@ -130,40 +126,49 @@ export default function EditListingPage() {
               </select>
             </div>
           </div>
-
           {/* Description */}
           <h3>Description</h3>
           <textarea
             id="editDescription"
+            type="text"
+            name="description"
             className="editDescription"
+            value={itemToEdit.description}
             rows="4"
             cols="50"
             onChange={handleEditItemChange}
-          ></textarea>
+          />
+
           <h3>Upload item picture</h3>
+          {preview ? (
+            <img
+              src={preview}
+              alt="Image Preview"
+              style={{ width: '300px', height: 'auto' }}
+            />
+          ) : (
+            <img src={itemToEdit.upload_image} />
+          )}
 
           {/* TODO: PHOTO UPLOAD */}
           <form
-          //   method="POST"
-          //   action="/profile-upload-multiple"
-          //   enctype="multipart/form-data"
+            method="POST"
+            action="/profile-upload-multiple"
+            enctype="multipart/form-data"
           >
             <div
-              className=""
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 marginRight: '20em',
               }}
             >
-              {/* <input
-              type="file"
-              value={uploadedFile}
-              onChange={(e) => setUploadedFile(e.target.value)}
-              name="profile-files"
-            /> */}
-
-              {/* <input type="submit" value="Upload" /> */}
+              <input
+                type="file"
+                // value={itemIdToEdit.upload_image}
+                onChange={handleEditItemPhotoChange}
+                name="profile-files"
+              />
             </div>
           </form>
           <div className="jc-end">
@@ -180,36 +185,37 @@ export default function EditListingPage() {
             <b>Delivery Method</b>
             <p> Pickup Drop-off Both</p>
             <h3>Category</h3>
-            {/* <select
-            name="condition"
-            id="condition"
-            // defaultValue={'Select Condition'}
-            value={condition}
-            style={{ width: '15em', height: '3em' }}
-            onChange={(e) => setCondition(e.target.value)}
-          > */}
-            {/* <option value="" disabled>
-              Select an option
-            </option> */}
-            {/* <option value="Excellent">Excellent</option>
-            <option value="Like New">New</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-          </select> */}
+            <select
+              name="condition"
+              id="condition"
+              value={itemToEdit.condition}
+              style={{ width: '15em', height: '3em' }}
+              onChange={handleEditItemChange}
+            >
+              <option value="" disabled>
+                Select condition
+              </option>
+              <option value="Excellent">Excellent</option>
+              <option value="Like New">New</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+            </select>
             <b>Estimated Value (Optional)</b>
-            {/* <input
-            type="text"
-            value={estimatedValue}
-            onChange={(e) => setEstimatedValue(e.target.value)}
-          />
-          <br />
-          <b>Color (Optional)</b>
-          <br />
-          <input
-            type="text"
-            value={color}
-            onChange={(e) => setColor(e.target.value)}
-          /> */}
+            <input
+              type="text"
+              name="estimated_value"
+              value={itemToEdit.estimated_value}
+              onChange={handleEditItemChange}
+            />
+            <br />
+            <b>Color (Optional)</b>
+            <br />
+            <input
+              name="color"
+              type="text"
+              value={itemToEdit.color}
+              onChange={handleEditItemChange}
+            />
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ export default function ItemPage() {
               <p>{item.item}</p>
 
               <h4>Estimated Value</h4>
-              <p>${item.estimate_value}</p>
+              <p>${item.estimated_value}</p>
             </div>
 
             <div className="row ac-center">

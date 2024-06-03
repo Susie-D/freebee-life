@@ -15,10 +15,6 @@ export default function MyItemPage() {
   };
 
   const editItem = (itemId) => {
-    // dispatch({
-    //   type: 'EDIT_USER_ITEM',
-    //   payload: itemId,
-    // });
     history.push(`/edit-item/${itemId}`);
   };
 
@@ -38,7 +34,7 @@ export default function MyItemPage() {
               <h4>Item</h4>
               <p>{item.item}</p>
               <h4>Estimated Value</h4>
-              <p>${item.estimate_value}</p>
+              <p>${item.estimated_value}</p>
             </div>
 
             <div className="row ac-center">
