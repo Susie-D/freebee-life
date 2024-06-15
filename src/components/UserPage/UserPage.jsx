@@ -49,9 +49,7 @@ function UserPage() {
           </p>
         </div>
       </div>
-      <p className="row">
-        <p>Your ID is: {user.id}</p>
-      </p>
+      <p className="row">{/* <p>Your ID is: {user.id}</p> */}</p>
       <LogOutButton className="btn" />
     </div>
   );

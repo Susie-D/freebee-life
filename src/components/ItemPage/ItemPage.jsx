@@ -71,7 +71,7 @@ export default function ItemPage() {
             <div className="row jc-center">
               <button
                 className="donate-btn jc-center ac-center"
-                onClick={() => console.log('hey')}
+                onClick={() => history.push('/donate')}
               >
                 Donate
                 <img src={bee} alt="" />

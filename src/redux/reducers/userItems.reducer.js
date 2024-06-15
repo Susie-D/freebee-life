@@ -19,14 +19,6 @@ const userItem = (state = {}, action) => {
     }
 };
 
-const deleteUserItem = (state = {}, action) => {
-    switch (action.type) {
-        case 'DELETE_ITEM':
-            return action.payload;
-        default:
-            return state;
-    }
-};
 
 const editUserItem = (state = {}, action) => {
     switch (action.type) {
@@ -39,6 +31,15 @@ const editUserItem = (state = {}, action) => {
             };
         default:
             return state
+    }
+};
+
+const deleteUserItem = (state = {}, action) => {
+    switch (action.type) {
+        case 'DELETE_ITEM':
+            return action.payload;
+        default:
+            return state;
     }
 };
 

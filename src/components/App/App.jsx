@@ -143,6 +143,17 @@ function App() {
             )}
           </Route>
 
+          <Route exact path="/donate">
+            <div className="container column ac-center jc-center">
+              <h1>In the works:</h1>
+              <h2>Summer 2024!</h2>
+              <p>
+                Bee populations are critical for ensuring a healthy environment.
+              </p>
+              <p>We are grateful for your support!</p>
+            </div>
+          </Route>
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>Whoops... Did you get lost buzzing around?</h1>
