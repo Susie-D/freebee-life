@@ -30,7 +30,7 @@
     "start": "node server/server.js",
     "client": "vite",
     "server": "nodemon --watch server server/server.js",
-    "build": "vite build --output public",
+    "build": "vite build",
     "test": "vitest"
   },
   "devDependencies": {
