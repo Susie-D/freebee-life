@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './_NewListingPage.scss';
 import { useHistory } from 'react-router-dom';
+import './_NewListingPage.scss';
 
 export default function NewListingPage() {
   const dispatch = useDispatch();
@@ -122,8 +122,6 @@ export default function NewListingPage() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         >
-          At w3schools.com you will learn how to make a website. They offer free
-          tutorials in all web development technologies.
         </textarea>
         <h3>Upload item picture</h3>
         <div

@@ -1,7 +1,7 @@
-import { suz } from '../../assets/assets';
+import { useSelector } from 'react-redux';
+import { smile } from '../../assets/assets';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './UserPage.css';
-import { useSelector } from 'react-redux';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -19,8 +19,9 @@ function UserPage() {
     >
       <h2 className="welcome-header">Welcome, {user.username}!</h2>
       <img
-        src={suz}
-        alt="suz-thumbnail"
+      width={"100px"}
+        src={smile}
+        alt="thumbnail"
         style={{ borderRadius: '5em', marginBottom: '2.5em' }}
       />
 

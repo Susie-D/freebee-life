@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import LogOutButton from '../LogOutButton/LogOutButton';
-import { freeBeeLogo, gear, suz } from '../../assets/assets';
-import './Nav.css';
 import { useHistory } from 'react-router-dom';
+import { freeBeeLogo, gear, smile } from '../../assets/assets';
+import './Nav.css';
 
 function Nav() {
   const dispatch = useDispatch();
@@ -60,9 +60,9 @@ function Nav() {
             {/* <LogOutButton className="navLink" /> */}
             <div className="row ac-center jc-center">
               <img
-                src={suz}
-                alt="suz-thumbnail"
-                className="suz-thumbnail"
+                src={smile}
+                alt="thumbnail"
+                className="thumbnail"
                 onClick={() => history.push('/user')}
               />
               <img
