@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Slider from 'react-slick';
+import { getFileName } from '../../utility/fileName';
 import './_ImageSlider.scss';
 
 export default function ImageSlider() {
@@ -53,7 +54,7 @@ export default function ImageSlider() {
                 >
                   {item.headline}
                 </div>
-                <img src={item.upload_image} />
+                <img src={getFileName(item.upload_image)} />
               </div>
 
               <div className="item-info column">

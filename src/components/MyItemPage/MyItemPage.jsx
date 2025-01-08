@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { getFileName } from '../../utility/fileName';
 import './_MyItemPage.scss';
 
 export default function MyItemPage() {
@@ -29,7 +30,7 @@ export default function MyItemPage() {
             <h1 className="item-page-content-header">{item.headline}</h1>
           </div>
           <div className="jc-center">
-            <img src={item.upload_image} />
+            <img src={getFileName(item.upload_image)} />
           </div>
 
           <div className="item-details">

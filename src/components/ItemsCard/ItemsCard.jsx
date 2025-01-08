@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { getFileName } from '../../utility/fileName';
 import './_ItemsCard.scss';
 
 export default function ItemsCard() {
@@ -32,7 +33,7 @@ export default function ItemsCard() {
             <div className="item-card-header">
               <h4>{item.headline}</h4>
             </div>
-            <img src={item.upload_image} alt={item.description} />
+            <img src={getFileName(item.upload_image)} alt={item.description} />
           </div>
         );
       })}

@@ -1,18 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { bee } from '../../assets/assets';
+import { getFileName } from '../../utility/fileName';
 import './_ItemPage.scss';
 
 export default function ItemPage() {
   const history = useHistory();
   const item = useSelector((store) => store.items.item);
-  const BASE_URL = import.meta.env.VITE_BASE_URL;
-
-  const getFileName = (filePath) => {
-    if (filePath) {  
-      let fileName = filePath.split('/').splice(1, 2).join('/');    
-      return fileName;;
-  }}
 
   return (
     <>
@@ -22,7 +16,7 @@ export default function ItemPage() {
             <h1 className="item-page-content-header">{item.headline}</h1>
           </div>
           <div className="jc-center">
-            <img src={`${BASE_URL}/${getFileName(item.upload_image)}`} />
+            <img src={getFileName(item.upload_image)} />
           </div>
           <div className="item-details">
             <div className="row ac-center jc-space-between">
