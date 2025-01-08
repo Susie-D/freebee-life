@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './');
+        cb(null, 'server/Images');
     },
     filename: (req, file, cb) => {
         console.log('file', file)

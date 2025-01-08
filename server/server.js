@@ -29,9 +29,7 @@ app.use('/api/user/:id/items', userItemsRouter);
 app.use('/api/user', userRouter);
 app.use('/api/items', itemsRouter);
 
-app.use(express.static(__dirname + '/public'));
-app.use('/uploads', express.static('uploads'));
-
+app.use('/Images', express.static(__dirname + '/Images'));
 
 // Listen Server & Port
 app.listen(PORT, () => {
